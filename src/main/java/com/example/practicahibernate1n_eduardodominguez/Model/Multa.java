@@ -20,6 +20,8 @@ public class Multa implements Serializable {
 
     @Column(name = "fecha")
     private LocalDate fecha;
+    @Column(name = "matricula")
+    private String matricula;
 
     // Relación ManyToOne con Coche, la clave foránea es "matricula"
     @ManyToOne
@@ -37,6 +39,11 @@ public class Multa implements Serializable {
         this.coche = coche;
     }
 
+    public Multa(String matricula, double precio, LocalDate fecha) {
+        this.matricula = matricula;
+        this.precio = precio;
+        this.fecha = fecha;
+    }
 
     // GETTERS Y SETTERS
     public int getId_multa() {

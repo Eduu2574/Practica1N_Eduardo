@@ -39,7 +39,7 @@
             </font>
         </Text>
         <TextField fx:id="matriculaTf" layoutX="299.0" layoutY="82.0" prefHeight="36.0" prefWidth="207.0" />
-        <TextField fx:id="idMatriculaTf" layoutX="424.0" layoutY="172.0" prefHeight="21.0" prefWidth="85.0" />
+        <TextField fx:id="idMultaTf" layoutX="424.0" layoutY="172.0" prefHeight="21.0" prefWidth="85.0" />
         <TextField fx:id="precioTf" layoutX="299.0" layoutY="254.0" prefHeight="36.0" prefWidth="207.0" />
         <Button layoutX="47.0" layoutY="441.0" mnemonicParsing="false" onAction="#onInsertarClic" prefHeight="41.0" prefWidth="115.0" text="INSERTAR" />
         <Button layoutX="366.0" layoutY="444.0" mnemonicParsing="false" onAction="#onBorrarClic" prefHeight="36.0" prefWidth="115.0" text="BORRAR" />
