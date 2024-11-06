@@ -8,7 +8,7 @@ import java.util.List;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity  // Indica que esta clase representa una entidad que se mapea a una tabla en la base de datos.
-    @Table(name = "multas") // Especifica el nombre de la tabla en la base de datos que esta clase representa
+@Table(name = "coches") // Especifica el nombre de la tabla en la base de datos que esta clase representa
 public class Coche {
 
     @Id

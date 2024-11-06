@@ -64,7 +64,7 @@ public class CocheDAO implements CocheDAOImpl {
 
         try (Session session = HibernateUtil.getSession()) { // Hago try-catch para abrir una sesión de Hibernate, que se cerrará automáticamente al salir del bloque
             transaction = session.beginTransaction(); // Inicia una transacción en la sesión actual
-            session.update(coche); // Actualiza el objeto coche en la base de datos con los valores actuales
+            session.saveOrUpdate(coche); // Actualiza el objeto coche en la base de datos con los valores actuales
             transaction.commit(); // Si la actualización es exitosa, confirma la transacción (commit)
             actualizado = true; // Marca la variable actualizado como verdadera, indicando que la operación fue exitosa
         } catch (Exception e) { // Captura cualquier excepción que ocurra durante la actualización
@@ -75,13 +75,13 @@ public class CocheDAO implements CocheDAOImpl {
     }
 
     public List<Coche> obtenerCoche() {
+
         Transaction transaction = null; // Inicializa la transacción como nula para el manejo de errores
-        Coche coche=null;
         List<Coche> coches = new ArrayList<>(); // Crea una lista vacía para almacenar los coches obtenidos
 
         try (Session session = HibernateUtil.getSession()) { // Abre una sesión de Hibernate que se cierra automáticamente al finalizar
             transaction = session.beginTransaction(); // Inicia una transacción para asegurar la atomicidad de las operaciones
-            Query<Coche> query = session.createQuery("from Coche where matricula = :matricula", Coche.class);
+            coches = session.createQuery("from Coche", Coche.class).list(); // Ejecuta una consulta para obtener todos los objetos Coche de la base de datos y los almacena en la lista 'coches'
             transaction.commit(); // Confirma la transacción si la consulta se ejecuta sin errores
         } catch (Exception e) { // Captura cualquier excepción que pueda ocurrir durante la operación
             if (transaction != null) { // Verifica si la transacción fue iniciada
@@ -90,6 +90,9 @@ public class CocheDAO implements CocheDAOImpl {
             }
         }
         return coches; // Retorna la lista de coches obtenida (puede estar vacía si hubo un error)
+
+
+
     }
 
     public boolean verificarExisteMatricula(String matricula) { // Método que verifica si una matrícula ya existe en la base de datos

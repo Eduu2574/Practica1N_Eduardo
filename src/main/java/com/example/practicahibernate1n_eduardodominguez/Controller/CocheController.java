@@ -74,9 +74,10 @@ public class CocheController implements Initializable {
         tipoCol.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
 
-        List<Coche> listarCoches = CocheDAO.obtenerCoche(); // Obtengo la lista de coches de la base de datos
+        List<Coche> listarCoches = CocheDAO.getInstance().obtenerCoche(); // Obtengo la lista de coches de la base de datos
         listadoCoches = FXCollections.observableArrayList(listarCoches); // Creo una lista observable con los coches
         CochesTv.setItems(listadoCoches); // Establezco la lista de coches en el TableView
+
     }
 
 

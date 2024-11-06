@@ -23,7 +23,7 @@ public class Multa implements Serializable {
 
     // Relación ManyToOne con Coche, la clave foránea es "matricula"
     @ManyToOne
-    @JoinColumn(name = "matricula",referencedColumnName = "matricula")
+    @JoinColumn(name = "matricula",referencedColumnName = "id")
     private Coche coche;
 
     // CONSTRUCTORES:
