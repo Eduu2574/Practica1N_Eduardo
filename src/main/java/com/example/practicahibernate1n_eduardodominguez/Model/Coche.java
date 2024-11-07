@@ -3,13 +3,14 @@ package com.example.practicahibernate1n_eduardodominguez.Model;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity  // Indica que esta clase representa una entidad que se mapea a una tabla en la base de datos.
 @Table(name = "coches") // Especifica el nombre de la tabla en la base de datos que esta clase representa
-public class Coche {
+public class Coche implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)

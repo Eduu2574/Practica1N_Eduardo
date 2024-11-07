@@ -9,10 +9,10 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "multas")
-public class Multa implements Serializable {
+public class Multa{
     @Id
-    @Column(name = "id_multa")
     @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id_multa")
     private int id_multa;
 
     @Column(name = "precio")
@@ -20,12 +20,10 @@ public class Multa implements Serializable {
 
     @Column(name = "fecha")
     private LocalDate fecha;
-    @Column(name = "matricula")
-    private String matricula;
 
     // Relación ManyToOne con Coche, la clave foránea es "matricula"
     @ManyToOne
-    @JoinColumn(name = "matricula",referencedColumnName = "id")
+    @JoinColumn(name = "matricula",referencedColumnName = "matricula")
     private Coche coche;
 
     // CONSTRUCTORES:
@@ -39,8 +37,7 @@ public class Multa implements Serializable {
         this.coche = coche;
     }
 
-    public Multa(String matricula, double precio, LocalDate fecha) {
-        this.matricula = matricula;
+    public Multa(double precio, LocalDate fecha) {
         this.precio = precio;
         this.fecha = fecha;
     }

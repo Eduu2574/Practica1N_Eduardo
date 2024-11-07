@@ -93,6 +93,7 @@ public class MultasController implements Initializable {
         }
 
          */
+        /*
         // Compruebo que la matrícula SI QUE EXISTE
         if (!MultasDAO.getInstance().verificarExisteMatricula(matricula)) {
             Alerta.mostrarError("La matricula no coincide con ningun vehiculo de nuestra base de datos!"); // Muestra un mensaje de error si la matrícula ya existe
@@ -108,6 +109,8 @@ public class MultasController implements Initializable {
         } else {
             Alerta.mostrarError("No se ha podido insertar el coche."); // Muestra un mensaje de error si la inserción no se ha podido realizar
         }
+
+         */
 
     }
 
