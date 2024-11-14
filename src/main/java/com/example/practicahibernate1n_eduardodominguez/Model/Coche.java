@@ -11,7 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity  // Indica que esta clase representa una entidad que se mapea a una tabla en la base de datos.
 @Table(name = "coches") // Especifica el nombre de la tabla en la base de datos que esta clase representa
 public class Coche implements Serializable {
-
+private int prueba;
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")

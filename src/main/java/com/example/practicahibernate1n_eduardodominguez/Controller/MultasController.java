@@ -64,11 +64,9 @@ public class MultasController implements Initializable {
             // Maneja la excepción adecuadamente
             System.err.println("Error al cargar las multas: " + e.getMessage());
         }
-
-
-
-
     }
+
+
 
     @FXML
     void onActualizarClic(ActionEvent event) {
@@ -113,6 +111,7 @@ public class MultasController implements Initializable {
          */
 
     }
+
 
     @FXML
     void onLimpiarClic(ActionEvent event) {
