@@ -1,6 +1,5 @@
 package com.example.practicahibernate1n_eduardodominguez.Model;
 
-
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -10,14 +9,17 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity  // Indica que esta clase representa una entidad que se mapea a una tabla en la base de datos.
 @Table(name = "coches") // Especifica el nombre de la tabla en la base de datos que esta clase representa
+
 public class Coche implements Serializable {
-private int prueba;
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
     private int id;
+
     @Column(name = "matricula")
     private String matricula;
+
     @Column(name = "marca")
     private String marca;
 
@@ -28,12 +30,10 @@ private int prueba;
     private String tipo;
 
     @OneToMany(mappedBy = "coche", cascade = CascadeType.ALL)
-    private List<Multa> multas;//un arma puede ser utilizada  por muchos personajes
+    private List<Multa> multas;
 
 
     // Constructores
-
-
     public Coche( String matricula, String marca, String modelo, String tipo) {
         super();
         this.matricula = matricula;

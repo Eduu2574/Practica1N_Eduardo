@@ -1,11 +1,12 @@
 package com.example.practicahibernate1n_eduardodominguez.DAO;
 
+import com.example.practicahibernate1n_eduardodominguez.Model.Coche;
 import com.example.practicahibernate1n_eduardodominguez.Model.Multa;
 
 import java.util.List;
 
 public interface MultasDAOImpl {
-    public List<Multa> obtenerMulta(); // Método que obtiene y retorna una lista de objetos coche desde la base de datos
+    public List<Multa> obtenerMulta(Coche coche); // Método que obtiene y retorna una lista de objetos coche desde la base de datos
 
     public boolean insertarMulta(Multa multa); // Método para insertar un nuevo coche en la base de datos
 

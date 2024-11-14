@@ -7,9 +7,11 @@ import java.sql.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity
-@Table(name = "multas")
+@Entity  // Indica que esta clase representa una entidad que se mapea a una tabla en la base de datos.
+@Table(name = "multas") // Especifica el nombre de la tabla en la base de datos que esta clase representa
+
 public class Multa{
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id_multa")
@@ -28,13 +30,14 @@ public class Multa{
 
     // CONSTRUCTORES:
 
-    // Constructor vacío. Hibernate puede mostrar algún error si no está implementado
-    public Multa() {}
+    public Multa() {
 
-    public Multa(double precio, LocalDate fecha, Coche coche) {
+    }
+
+    public Multa(Coche coche, double precio, LocalDate fecha) {
+        this.coche = coche;
         this.precio = precio;
         this.fecha = fecha;
-        this.coche = coche;
     }
 
     public Multa(double precio, LocalDate fecha) {

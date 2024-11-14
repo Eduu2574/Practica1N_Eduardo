@@ -12,18 +12,6 @@ import java.util.List;
 
 public class CocheDAO implements CocheDAOImpl {
 
-    // Variable estática que almacena la única instancia de la clase CocheDAO
-    private static CocheDAO instance = new CocheDAO();
-
-    // Constructor privado para evitar la creación de nuevas instancias desde fuera de la clase
-    private CocheDAO() {}
-
-    // Método público estático para acceder a la instancia única de la clase
-    public static CocheDAO getInstance() {
-        // Devuelve la instancia creada de CocheDAO
-        return instance;
-    }
-
     public boolean insertarCoche(Coche coche) {
         boolean insertado = false; // Variable para verificar si el coche fue insertado exitosamente
         Transaction transaction = null; // Inicializa la transacción como nula para asegurar que pueda controlarse su estado
@@ -34,13 +22,12 @@ public class CocheDAO implements CocheDAOImpl {
             transaction.commit(); // Si la inserción es exitosa, se confirma la transacción (commit)
             insertado = true; // Marca la variable insertado como verdadera, indicando que la operación fue exitosa
         } catch (Exception e) { // Captura cualquier excepción que pueda ocurrir durante la inserción
-            if (transaction != null) transaction.rollback(); // Si ocurre alguna excepción, realiza un rollback para deshacer la transacción
+            if (transaction != null)
+                transaction.rollback(); // Si ocurre alguna excepción, realiza un rollback para deshacer la transacción
             System.err.println("No se ha podido insertar el coche" + e.getMessage()); // Imprime un mensaje de error con el detalle de la excepción
         }
-
         return insertado; // Retorna el estado de la inserción
     }
-
 
     public boolean borrarCoche(Coche coche) {
         boolean eliminado = false; // Variable para verificar si el coche fue eliminado correctamente
@@ -52,7 +39,8 @@ public class CocheDAO implements CocheDAOImpl {
             transaction.commit(); // Si la eliminación es exitosa, confirma la transacción (commit)
             eliminado = true; // Marca la variable eliminado como verdadera, indicando que la operación fue exitosa
         } catch (Exception e) { // Captura cualquier excepción que ocurra durante la eliminación
-            if (transaction != null) transaction.rollback(); // Si ocurre una excepción, realiza un rollback para deshacer la transacción
+            if (transaction != null)
+                transaction.rollback(); // Si ocurre una excepción, realiza un rollback para deshacer la transacción
             System.err.println("No se ha podido eliminar el coche " + e.getMessage()); // Imprime un mensaje de error con los detalles de la excepción
         }
         return eliminado; // Retorna el estado de la eliminación (true si fue exitosa, false en caso contrario)
@@ -68,7 +56,8 @@ public class CocheDAO implements CocheDAOImpl {
             transaction.commit(); // Si la actualización es exitosa, confirma la transacción (commit)
             actualizado = true; // Marca la variable actualizado como verdadera, indicando que la operación fue exitosa
         } catch (Exception e) { // Captura cualquier excepción que ocurra durante la actualización
-            if (transaction != null) transaction.rollback(); // Si ocurre una excepción, realiza un rollback para deshacer la transacción
+            if (transaction != null)
+                transaction.rollback(); // Si ocurre una excepción, realiza un rollback para deshacer la transacción
             System.err.println("No se ha podido actualizar el coche" + e.getMessage()); // Imprime un mensaje de error con los detalles de la excepción
         }
         return actualizado; // Retorna el estado de la actualización (true si fue exitosa, false en caso contrario)
@@ -90,9 +79,6 @@ public class CocheDAO implements CocheDAOImpl {
             }
         }
         return coches; // Retorna la lista de coches obtenida (puede estar vacía si hubo un error)
-
-
-
     }
 
     public boolean verificarExisteMatricula(String matricula) { // Método que verifica si una matrícula ya existe en la base de datos
@@ -119,4 +105,3 @@ public class CocheDAO implements CocheDAOImpl {
     }
 
 }
-
